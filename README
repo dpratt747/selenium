@@ -1,0 +1,17 @@
+To install all project dependencies:
+- inside project root (/appium_test)
+- npm run deps
+
+To clean project dependencies:
+- npm run clean
+
+To run dependency checks, make sure you have run the following:
+- npm install -g appium-doctor
+- inside project root
+- npm run check_dep
+
+Starting Appium Server:
+- inside project root
+- appium
+- port defaults to 4723 (can change port using -p)
+-

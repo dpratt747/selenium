@@ -1,0 +1,18 @@
+{
+  "name": "mvp_test",
+  "version": "0.0.1",
+  "description": "automated e2e tests for mvp",
+  "main": "index.js",
+  "scripts": {
+    "deps": "npm install -g selenium-server chromedriver | npm install",
+    "clean": "rm -rf node_modules | rm package-lock.json | npm uninstall -g selenium-server chromedriver",
+    "start_appium": "appium"
+  },
+  "author": "davidpratt",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^2.43.3",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "webdriverio": "^4.14.0"
+  }
+}

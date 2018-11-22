@@ -8,3 +8,7 @@ To install all project dependencies:
 To clean project dependencies:
 - npm run clean
 
+
+Guide:
+https://blog.testproject.io/2018/03/08/selenium-javascript-best-practices/
+https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/

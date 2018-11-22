@@ -1,20 +1,29 @@
 require("chromedriver");
 require("geckodriver");
+require("iedriver");
 
 
+class SeleniumConfig {
+    constructor(browser) {
+        return this.driverCreation(browser);
+    }
 
-/**
- *
- * @param browser String - possible values
- * @returns {*}
- */
+    driverCreation(browser) {
+        const webDriver = require("selenium-webdriver");
+        const ieCapabilities = {
+            "ignoreZoomSetting": true,
+            "EnableNativeEvents": false
+        };
 
-function driverCreationChrome(browser) {
-    const webDriver = require("selenium-webdriver");
-    return new webDriver.Builder()
-        .forBrowser(browser);
+        const a = new webDriver.Capabilities(ieCapabilities);
+
+        return new webDriver.Builder()
+            .forBrowser(browser);
+    }
 }
 
-exports.chrome = driverCreationChrome("chrome");
-exports.firefox = driverCreationChrome("firefox");
-// exports.safari = driverCreationChrome("safari");
+
+
+exports.chrome = new SeleniumConfig("chrome");
+exports.firefox = new SeleniumConfig("firefox");
+exports.internetexplorer = new SeleniumConfig("internet explorer");

@@ -4,7 +4,7 @@
   "description": "automated e2e tests for mvp",
   "main": "index.js",
   "scripts": {
-    "deps": "npm install -g selenium-server chromedriver | npm install",
+    "build": "npm install -g selenium-server chromedriver | npm install",
     "clean": "rm -rf node_modules | rm package-lock.json | npm uninstall -g selenium-server chromedriver",
     "start_appium": "appium"
   },

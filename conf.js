@@ -10,13 +10,13 @@ class SeleniumConfig {
 
     driverCreation(browser) {
         const webDriver = require("selenium-webdriver");
-        const ieCapabilities = {
-            "ignoreZoomSetting": true,
-            "EnableNativeEvents": false
-        };
 
-        const a = new webDriver.Capabilities(ieCapabilities);
-
+        // const ieCapabilities = {
+        //     "ignoreZoomSetting": true,
+        //     "EnableNativeEvents": false
+        // };
+        //
+        // const a = new webDriver.Capabilities(ieCapabilities);
         return new webDriver.Builder()
             .forBrowser(browser);
     }

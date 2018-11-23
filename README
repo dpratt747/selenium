@@ -3,12 +3,27 @@ Install node from http://nodejs.org
  *** inside project root ***
 
 To install all project dependencies:
-- npm run deps
+- npm run build
 
 To clean project dependencies:
 - npm run clean
 
+To run tests:
+- npm run test
 
 Guide:
 https://blog.testproject.io/2018/03/08/selenium-javascript-best-practices/
 https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
+
+Helpful tool for getting elements xpaths:
+- XPath Generator - chrome extension
+
+
+For expect tests:
+    chai
+
+For syntax information:
+    selenium
+    mocha
+    javascript
+

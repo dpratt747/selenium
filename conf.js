@@ -23,7 +23,6 @@ class SeleniumConfig {
 }
 
 
-
 exports.chrome = new SeleniumConfig("chrome");
 exports.firefox = new SeleniumConfig("firefox");
 exports.internetexplorer = new SeleniumConfig("internet explorer");

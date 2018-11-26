@@ -45,8 +45,9 @@ class SeleniumConfig {
 
 exports.captureFailures = function (test, driver) {
     if (test.state === "failed") {
+        const time = Math.floor(Date.now() /1000 | 0);
         driver.takeScreenshot(true).then(function (image) {
-            fs.writeFileSync(`screenshots\\${test.title}.png`, image, "base64", function (err) {
+            fs.writeFileSync(`screenshots\\${test.title + time.toString()}.png`, image, "base64", function (err) {
                 console.log(err);
             });
         });

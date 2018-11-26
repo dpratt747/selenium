@@ -1,5 +1,5 @@
 'use strict';
-const config = require("../conf.js");
+const config = require("../../conf.js");
 const {By, Key, until} = require("selenium-webdriver");
 
 // select the browser you wish to use

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm install -g selenium-server chromedriver | npm install",
     "clean": "rm -rf node_modules | rm package-lock.json | npm uninstall -g selenium-server chromedriver",
-    "test": "mocha --no-timeouts"
+    "test": "mocha --no-timeouts --recursive"
   },
   "author": "davidpratt",
   "license": "ISC",

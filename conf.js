@@ -11,10 +11,10 @@ class SeleniumConfig {
 
     }
 
-    static async initDir(){
+    static initDir() {
         const dir = "./screenshots";
-        if (!fs.existsSync(dir)){
-            await fs.mkdir(dir);
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir);
         }
     };
 
@@ -45,9 +45,9 @@ class SeleniumConfig {
 
 exports.captureFailures = function (test, driver) {
     if (test.state === "failed") {
-        const time = Math.floor(Date.now() /1000 | 0);
+        const time = "_" + Math.floor(Date.now() / 1000 | 0).toString();
         driver.takeScreenshot(true).then(function (image) {
-            fs.writeFileSync(`screenshots\\${test.title + time.toString()}.png`, image, "base64", function (err) {
+            fs.writeFileSync(`screenshots\\${test.title + time}.png`, image, "base64", function (err) {
                 console.log(err);
             });
         });

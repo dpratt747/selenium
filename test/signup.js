@@ -1,6 +1,7 @@
 'use strict';
 const config = require("../conf.js");
 const {By, Key, until} = require("selenium-webdriver");
+
 // select the browser you wish to use
 const browser = config.chrome.build();
 const expect = require("chai").expect;
@@ -11,25 +12,26 @@ describe("Home page login", () => {
     before(async () => {
         // Maximises screen size
         await browser.manage().window().maximize();
+
         // Opens an instance of the webpage
         browser.get("https://www.myvouchercodes.co.uk");
     });
 
     // runs before each test case
-    beforeEach(async () => {
-         await browser.sleep(2000);
-    });
+    // beforeEach(async () => {
+    // });
 
     // runs after all test have completed;
     after(async () => {
         // closes browser after everything has ran
-       // await browser.quit();
+        await browser.quit();
     });
 
     // runs after each test
-    // afterEach(async (test) => {
-    //
-    // });
+    afterEach(function () {
+        // Capture screenshots for test failures. Find the images under /screenshots
+        config.captureFailures(this.currentTest, browser);
+    });
 
     it("Clicking the sign in button should redirect to the sign in page", async () => {
         // xpath for signup button
@@ -50,16 +52,16 @@ describe("Home page login", () => {
 
     it("Should fill form with user data", async () => {
         // elements xpaths
-        const signupForm = By.xpath("//div[@class='c-signup-content__left u-mb']");
         const emailField = By.xpath("//input[@id='LayoutInputText__field']");
 
         // form details
         const email = "email@emailaddress.com";
 
-        // clicks form field and then enters values do this for each field
+        // clicks form field empties it in case there is a default value and then enters values. I would advise doing this for similar fields.
         await browser.findElement(emailField).click();
         await browser.findElement(emailField).clear();
         await browser.findElement(emailField).sendKeys(email);
+
 
     });
 

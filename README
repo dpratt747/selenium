@@ -9,6 +9,7 @@ To clean project dependencies:
 - npm run clean
 
 To run tests:
+- if you are running the tests using an IDE make sure to add the "--no-timeouts" argument
 - npm run test
 
 Guide:

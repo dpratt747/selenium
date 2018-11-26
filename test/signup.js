@@ -47,7 +47,7 @@ describe("Home page login", () => {
         const title = await browser.getTitle();
 
         // checks title is equals to the expected value
-        expect(title).to.equal("Join Now - MyVouzcherCodes");
+        expect(title).to.equal("Join Now - MyVoucherCodes");
     });
 
     it("Should fill form with user data", async () => {

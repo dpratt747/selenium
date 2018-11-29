@@ -8,7 +8,6 @@ class SeleniumConfig {
     constructor(browserName) {
         this.constructor.initDir();
         return this.constructor.driverCreation(browserName);
-
     }
 
     static initDir() {

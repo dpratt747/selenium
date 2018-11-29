@@ -15,10 +15,14 @@ To run tests:
 Guide:
 https://blog.testproject.io/2018/03/08/selenium-javascript-best-practices/
 https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
+https://jaketrent.com/post/run-single-mocha-test/
 
 Helpful tool for getting elements xpaths:
 - XPath Generator - chrome extension
 
+To run a single describe function:
+- add ".only()" to the function call i.e. describe.only(() => { ... });
+- this can also be done to test cases i.e. it.only(() => { ... });
 
 For expect tests:
     chai

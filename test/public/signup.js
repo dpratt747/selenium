@@ -22,10 +22,10 @@ describe("Home page login", () => {
     // });
 
     // runs after all test have completed;
-    after(async () => {
-        // closes browser after everything has ran
-        await browser.quit();
-    });
+    // after(async () => {
+    //     // closes browser after everything has ran
+    //     await browser.quit();
+    // });
 
     // runs after each test
     afterEach(function () {
@@ -33,7 +33,7 @@ describe("Home page login", () => {
         config.captureFailures(this.currentTest, browser);
     });
 
-    it("Clicking the sign in button should redirect to the sign in page", async () => {
+    it("Clicking the \"Login\" button should redirect to the sign in page", async () => {
         // xpath for signup button
         const signupButton = By.xpath("//i[@class='icon-thumbsup']");
 

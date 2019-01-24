@@ -2,11 +2,13 @@ require("chromedriver");
 require("geckodriver");
 require("iedriver");
 const webDriver = require("selenium-webdriver");
+const chrome = require("selenium-webdriver/chrome");
 const fs = require("fs");
 
 class SeleniumConfig {
     constructor(browserName) {
         this.constructor.initDir();
+
         return this.constructor.driverCreation(browserName);
     }
 
@@ -18,14 +20,23 @@ class SeleniumConfig {
     };
 
     static getBrowserCapabilities(browserName) {
-        const pref = new webDriver.logging.Preferences();
-        const chromeCapabilities = webDriver.Capabilities.chrome().setLoggingPrefs(pref.setLevel(webDriver.logging.Type.BROWSER, webDriver.logging.Level.DEBUG));
-        const fireCapabilities = webDriver.Capabilities.firefox().setLoggingPrefs(pref.setLevel(webDriver.logging.Type.BROWSER, webDriver.logging.Level.DEBUG));
+            // .chrome();
 
-        if (browserName === "chrome") {
-            return chromeCapabilities;
-        } else if (browserName === "firefox") {
-            return fireCapabilities;
+
+        switch(browserName){
+            case 'chrome':
+                const chromeCapabilities = webDriver.Capabilities.chrome();
+                // https://peter.sh/experiments/chromium-command-line-switches/
+                const chromeOptions = { 'args': ['--start-maximized', '--headless', '--test-type', 'window-size=1200,1100'] };
+                return chromeCapabilities.set('chromeOptions', chromeOptions);
+            case 'firefox':
+                const firefoxCapabilities = webDriver.Capabilities.chrome();
+                // const firefoxOptions = { 'args': ['--start-maximized', '--headless', '--test-type', 'window-size=1200,1100'] };
+                return firefoxCapabilities.set('chromeOptions', firefoxOptions);
+            case 'internet explorer':
+                break;
+            default:
+                throw Error("Unsupported browser passed " + browserName )
         }
     };
 
@@ -53,6 +64,15 @@ exports.captureFailures = function (test, driver) {
     }
 };
 
-exports.chrome = new SeleniumConfig("chrome");
-exports.firefox = new SeleniumConfig("firefox");
-exports.internetexplorer = new SeleniumConfig("internet explorer");
+exports.getDriverByName = function (browserName) {
+  switch(browserName){
+      case "chrome":
+          return new SeleniumConfig('chrome').build();
+      case "firefox":
+          return new SeleniumConfig('firefox'.build());
+      case "internet explorer":
+          return new SeleniumConfig('internet explorer').build();
+  }
+};
+exports.sandbox_domain = "http://uk.sb.tgvg.net";
+exports.live_domain = "https://www.myvouchercodes.co.uk";
